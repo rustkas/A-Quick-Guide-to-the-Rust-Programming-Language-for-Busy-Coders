@@ -36,10 +36,38 @@ pub fn slice_from_array() {
 }
 
 pub fn slice_from_array_2() {
-    let mut arr:[u8;4] = [5, 10, 20, 42];
+    let mut arr: [u8; 4] = [5, 10, 20, 42];
     let m1 = &mut arr as &mut [u8];
     println!("m1 = {m1:?}");
     m1[1] = 11;
     println!("m1 = {m1:?}");
     println!("arr = {arr:?}");
+}
+
+pub fn slice_iteration() {
+    let list = vec!["Do", "Re", "Mi", "Fa"];
+    for v in &list {
+        println!("{v}");
+    }
+    let slice = &list[..];
+    for (i, s) in slice.iter().enumerate() {
+        println!("{s}{}", "~".repeat(i + 1));
+    }
+}
+
+pub fn tuple_expressions() {
+    let t0 = ();
+    let t1 = (true,);
+    let t2 = ('O', 2u8);
+    let (name, title) = ("Ferris", "King Crab".to_string());
+    let t3 = (name, "the", title);
+    println!("t0: {t0:?};");
+    println!("t1: {t1:?};");
+    println!("t1: {t2:?};");
+    println!("t1: {t3:?};");
+}
+
+pub fn range_demo() {
+    let r1 = 1..=5;
+    r1.for_each(|v| print!("{v}, "));
 }
