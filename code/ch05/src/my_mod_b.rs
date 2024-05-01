@@ -1,0 +1,1 @@
+pub const B: &str = "I'm a Bee";
